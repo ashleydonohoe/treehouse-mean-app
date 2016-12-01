@@ -1,0 +1,19 @@
+'use strict';
+
+var express = require("express");
+var todos = require('../../mock/todos.json');
+var router = express.Router();
+
+// Route for getting todos
+router.get("/todos", function(req, res) {
+    res.json({todos: todos});
+});
+
+// TODO: Add POST route to make new todos
+
+// TODO: Add PUT route to update todos
+
+//TODO: Add DELETE route to delete todos
+
+
+module.exports = router;
