@@ -40,7 +40,16 @@ router.put("/todos/:id", function(req, res) {
     });
 });
 
-//TODO: Add DELETE route to delete todos
+router.delete('/todos/:id', function (req, res) {
+    var todoId = req.params.id; // This maps to the :id in the url
+    Todo.findByIdAndRemove(todoId, function (err, result) {
+        if (err) {
+            res.status(500).json({ message: err.message });
+        } else {
+            res.json({ message: 'Deleted Todo' });
+        }
+    });
+});
 
 
 module.exports = router;
